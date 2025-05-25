@@ -91,12 +91,12 @@ export const EventForm = ({
         endTime: editingEvent.endTime || '10:00',
         color: editingEvent.color,
         category: editingEvent.category || '',
-        recurrence: editingEvent.recurrence || {
-          type: 'none',
-          interval: 1,
-          daysOfWeek: [],
-          endDate: undefined,
-          occurrences: undefined,
+        recurrence: {
+          type: editingEvent.recurrence?.type || 'none',
+          interval: editingEvent.recurrence?.interval || 1,
+          daysOfWeek: editingEvent.recurrence?.daysOfWeek || [],
+          endDate: editingEvent.recurrence?.endDate,
+          occurrences: editingEvent.recurrence?.occurrences,
         },
       });
     } else if (selectedDate) {
